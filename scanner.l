@@ -49,7 +49,7 @@ letter        [a-zA-Z]
 "]"                  	{ printf("Recognized symbol as RSQUARE, token %d\n", RSQUARE); return RSQUARE;	}
 "{"				        { printf("Recognized symbol as LCURLY, token %d\n", LCURLY); return LCURLY;	}
 "}"				        { printf("Recognized symbol as RCURLY, token %d\n", RCURLY); return RCURLY;	}
-"//"				    { printf("Recognized symbol as SINGLECOMMSYM, token %d\n", SINGLECOMMSYM); return SINGLECOMMSYM;   }
+"//"({letter}|{digit})*"\n"				    { printf("Recognized symbol as SINGLECOMMSYM, token %d\n", SINGLECOMM); return SINGLECOMM;   }
 "/*"              	    { printf("Recognized symbol as STARTCOMMSYM, token %d\n", STARTCOMMSYM); return STARTCOMMSYM;  }
 "*/"              	    { printf("Recognized symbol as STARTCOMMSYM, token %d\n", STARTCOMMSYM); return STARTCOMMSYM;    }
 {letter}({letter}|{digit})* { printf("Recognized symbol as ID, token %d\n", ID); return ID;  }

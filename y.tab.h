@@ -41,7 +41,7 @@
 #define RSQUARE 298
 #define LCURLY 299
 #define RCURLY 300
-#define SINGLECOMMSYM 301
+#define SINGLECOMM 301
 #define STARTCOMMSYM 302
 #define ENDCOMMSYM 303
 #define ID 304
