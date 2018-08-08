@@ -18,8 +18,10 @@ static void merge(int[] A, int p, int q, int r) {
         while (b <= r) {
             aux[h++] = A[b++];
         }
-        for (h = 0; h < aux.length; h++) {
+        h = 0;
+        while (h < aux.length) {
             A[p++] = aux[h];
+            h++;
         }
     }
 

@@ -27,8 +27,10 @@ class QuickSort {
 	public static void main(String args[]) {
 		int vetor[] = { 100, 15, 65, 65, 76, 3, 4, 6, 8, 89 };
 		quickSort(vetor, 0, vetor.length - 1);
-		for (int i = 0; i < vetor.length; i++) {
+		int i = 0;
+		while (i < vetor.length) {
 			System.out.println(" " + vetor[i]);
+			i++;
 		}
 	}
 }
