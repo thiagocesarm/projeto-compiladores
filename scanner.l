@@ -10,11 +10,11 @@ letter        [a-zA-Z]
 %x comment
 
 %%
-"/*"         					BEGIN(comment);
-<comment>[^*\n]*        		// eat anything that's not a '*'
-<comment>"*"+[^*/\n]*   		// eat up '*'s not followed by '/'s
-<comment>\n             		++lines;
-<comment>"*"+"/"        		BEGIN(INITIAL);
+"/*"                            BEGIN(comment);
+<comment>[^*\n]*                // eat anything that's not a '*'
+<comment>"*"+[^*/\n]*           // eat up '*'s not followed by '/'s
+<comment>\n                     ++lines;
+<comment>"*"+"/"                BEGIN(INITIAL);
 "class"                         { printf("Line %d\tColumn %d\tSize %lu\tRecognized symbol as CLASSSYM\tLexem %s\n", lines, cols, yyleng, yytext); cols += yyleng;  return CLASSSYM;}
 "main"                          { printf("Line %d\tColumn %d\tSize %lu\tRecognized symbol as MAINSYM\tLexem %s\n", lines, cols, yyleng, yytext); cols += yyleng;  return MAINSYM; }
 "public"                        { printf("Line %d\tColumn %d\tSize %lu\tRecognized symbol as PUBLICSYM\tLexem %s\n", lines, cols, yyleng, yytext); cols += yyleng;  return PUBLICSYM;   }
