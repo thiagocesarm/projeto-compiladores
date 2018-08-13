@@ -64,6 +64,6 @@ letter        [a-zA-Z]
 "\""({letter}|{digit})*"\""     { printf("Line %d\tColumn %d\tSize %lu\tRecognized symbol as STRINGLIT\tLexem %s\n", lines, cols, yyleng, yytext); cols += yyleng;  return STRINGLIT;  }
 [\n\r]                          {lines++; cols = 1;}
 [ \t]                           {cols++;}
-.                               { printf("Lexycal Error: Symbol not recgnized [%c] on line: %d, column:%d \n",yytext[0], rows, cols); cols += yyleng;  return UNKNOWN;    }
+.                               { printf("Lexycal Error: Symbol not recgnized [%c] on line: %d, column:%d \n",yytext[0], lines, cols); cols += yyleng;  return UNKNOWN;    }
 %%
 int yywrap(void){return 1;}
