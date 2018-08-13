@@ -1,6 +1,6 @@
 class MergeSort {
 
-static void merge(int[] A, int p, int q, int r) {
+    static void merge(int[] A, int p, int q, int r) {
         int[] aux = new int[r - p + 1];
         int a = p;
         int b = q + 1;
@@ -33,6 +33,7 @@ static void merge(int[] A, int p, int q, int r) {
             merge(A, p, q, r);
         }
     }
+    
     public static void main (String args[]){
         int [] A = [1,6,9,3,6,7,2];
         int p = 4;
