@@ -45,8 +45,10 @@
 #define STARTCOMMSYM 302
 #define ENDCOMMSYM 303
 #define ID 304
-#define NUMBER 305
-#define UNKNOWN 306
-#define STRINGLIT 307
+#define OBJECTID 305
+#define INT 306
+#define REAL 307
+#define UNKNOWN 308
+#define STRINGLIT 309
 #define YYSTYPE int
 extern YYSTYPE yylval;
