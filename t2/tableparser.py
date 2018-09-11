@@ -107,24 +107,28 @@ IdArgs = 42
 Expr7 = 43
 DotExpr6 = 44
 NewExpr7 = 45
-NUMBER = 46
+Number = 46
+SeqIds = 47
+SeqIdsFollow = 48
+Paren = 49
+Attrib = 50
+ParenFollow = 51
 
 
 #parse table
 table = [[ 1, -1, 0, -1, -1, -1],
          [-1, -1, 2, -1, -1, -1]]
 
-rules = [[(Rule,N_F)],
-         [(Term,CLASSSYM), (Term,ID), (Rule,CLassDecl), (Rule, ClassDeclOp)],
+rules = [[(Term,CLASSSYM), (Term,ID), (Rule,CLassDecl), (Rule, ClassDeclOp)],
          [(Lambda)],
          [(Term,LCURLY), (Rule,VarDeclOp), (Rule, MethodDeclOp), (Term,RCURLY) ],
          [(Term,EXTSYM), (Term,ID), (Term,LCURLY),  (Rule, VarDeclOp), (Rule, MethodDeclOp), (Term,RCURLY)],
          [(Term,public), (Rule,MethodDecl), (Rule, MethodDeclOp)],
          [(Rule,Type), (Term,ID), (Rule, AssignmentDecl), (Term,SEMICOLON)],
          [(Term, ATTRIB), (Rule, Expr)],
-         [(Rule,Type), (Term,ID), (Rule, AssignmentDecl), (Term,SEMICOLON)],
-         [(Term,T_LPAR), (Rule,N_S), (Term,T_PLUS), (Rule,N_F), (Term,T_RPAR)],
-         [(Rule,VarDecl), (Rule, VarDeclOp)],
+         [(Rule, VarDecl), (Rule, VarDeclOp)],
+         # [(Term,T_LPAR), (Rule,N_S), (Term,T_PLUS), (Rule,N_F), (Term,T_RPAR)],
+         # [(Rule,VarDecl), (Rule, VarDeclOp)],
          [(Rule,Type), (Term,ID), (Term, LPAREN), (Rule, FormalParams), (Term, RPAREN), (Rule, CompoundStatement)],
          [(Term,STATICSYM), (Term,VOIDSYM), (Term, MAINSYM), (Term, LPAREN), (Term, STRINGSYM), (Term, LSQUARE) , (Term, RSQUARE), (Term, ID), (Term, RPAREN), (Rule, CompoundStatement)],
          [(Rule, Formal), (Rule,FormalParamsOp)],
@@ -143,6 +147,13 @@ rules = [[(Rule,N_F)],
          [(Term, ELSESYM), (Rule, CompoundStatement)],
          [(Rule, Statement), (Rule, StatementOp)],
          [(Rule, CompoundStatement)],
+         [(Term, ID), (Rule, SeqIdsFollow)],
+         [(Rule, Paren)],
+         [(Rule, SeqIds)],
+         [(Rule, Attrib)],
+         [(Rule, dot)],
+         [(Term, SEMICOLON)],
+         [(Term, LPAREN), (Rule, ExprListOp), (Term, RPAREN), (Rule, ParenFollow)],
          [(Rule, ExprOp), (Term, ID),(Rule, ExprComplement)],
          [(Term, WHILESYM), (Term, LPAREN), (Rule, Expr), (Term, RPAREN),(Rule, Statement)],
          [(Term, SYSOUTSYM), (Term, LPAREN), (Rule, SysOutArg), (Term, RPAREN),(Term, SEMICOLON)],
@@ -150,6 +161,7 @@ rules = [[(Rule,N_F)],
          [(Rule, Expr), (Term, PERIOD)],
          [(Rule, ExprAssignment)],
          [(Rule, ExprMethodCall)],
+         [(Term, PERIOD), (Rule, SeqIds)],
          [(Term, LSQUARE), (Rule, Expr), (Term, RSQUARE), (Term, ATTRIB), (Rule, Expr), (Term, SEMICOLON)],
          [(Term, ATTRIB), (Rule, Expr), (Term, SEMICOLON)],
          [(Term, LPAREN), (Rule, ExprListOp), (Term, RPAREN), (Term, SEMICOLON)],
@@ -170,6 +182,8 @@ rules = [[(Rule,N_F)],
          [(Term, LSS)],
          [(Term, GTR)],
          [(Term, GEQ)],
+         [(Term, LENGTHSYM)],
+         [(Term, STRINGLIT)],
          [(Rule, Expr4), (Rule, Expr33)],
          [(Term, PLUS),(Rule, Expr4), (Rule, Expr33)],
          [(Term, MINUS),(Rule, Expr4), (Rule, Expr33)],
@@ -181,21 +195,20 @@ rules = [[(Rule,N_F)],
          [(Term, ID),(Rule, IdArgs), (Rule, Expr66)],
          [(Term, LPAREN), (Rule, ExprListOp), (Term, RPAREN)],
          [(Rule, Expr7), (Rule, Expr66)],
-         [(Rule, DotExpr6)],
-         [(Term, LSQUARE), (Rule, Expr3), (Term, RSQUARE), (Rule, Expr66)],
+         [(Term, LSQUARE), (Rule, Expr3), (Term, RSQUARE)],
          [(Term, LENGTHSYM), (Term, LPAREN), (Term, RPAREN), (Rule, Expr66)],
          [(Term, ID), (Rule, IdArgs) (Rule, Expr66)],
-         [(Term, NEWSYM),(Rule, NewExpr7)],
+         [(Term, NEWSYM),(Rule, NewExypr7)],
          [(Term, THISSYM)],
          [(Term, LPAREN), (Rule, Expr), (Term, RPAREN)],
-         [(Term, Number)],
+         [(Rule, Number)],
          [(Rule, BasicType), (Term, LSQUARE), (Rule, Expr3), (Term, RSQUARE)],
          [(Term, ID),(Term, LPAREN), (Term, RPAREN)],
          [(Term, INTSYM)],
          [(Term, REAL)],
          [(Term, TRUESYM)],
          [(Term, FALSESYM)],
-         [(Term,T_A)]]
+         [(Term,END)]]
 
 stack = [(Term,T_END), (Rule,N_S)]
 
