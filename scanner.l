@@ -25,7 +25,7 @@ letterUpper   [A-Z]
 "boolean"                           { printf("Line %d\tColumn %d\tSize %lu\tRecognized symbol as BOOLSYM\tLexem %s\n", lines, cols, yyleng, yytext); cols += yyleng;  return BOOLSYM; } 
 "int"                               { printf("Line %d\tColumn %d\tSize %lu\tRecognized symbol as INTSYM\tLexem %s\n", lines, cols, yyleng, yytext); cols += yyleng;  return INTSYM;    }
 "double"                            { printf("Line %d\tColumn %d\tSize %lu\tRecognized symbol as DOUBLESYM\tLexem %s\n", lines, cols, yyleng, yytext); cols += yyleng;  return DOUBLESYM;   }
-"length"                            { printf("Line %d\tColumn %d\tSize %lu\tRecognized symbol as LENGTHSYM\tLexem %s\n", lines, cols, yyleng, yytext); cols += yyleng;  return LENGTHSYM;   }
+".length()"                         { printf("Line %d\tColumn %d\tSize %lu\tRecognized symbol as LENGTHSYM\tLexem %s\n", lines, cols, yyleng, yytext); cols += yyleng;  return LENGTHSYM;   }
 "new"                               { printf("Line %d\tColumn %d\tSize %lu\tRecognized symbol as NEWSYM\tLexem %s\n", lines, cols, yyleng, yytext); cols += yyleng;  return NEWSYM;    }
 "return"                            { printf("Line %d\tColumn %d\tSize %lu\tRecognized symbol as RETURNSYM\tLexem %s\n", lines, cols, yyleng, yytext); cols += yyleng;  return RETURNSYM;   }
 "String"                            { printf("Line %d\tColumn %d\tSize %lu\tRecognized symbol as STRINGSYM\tLexem %s\n", lines, cols, yyleng, yytext); cols += yyleng;  return STRINGSYM;   }
