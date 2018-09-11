@@ -1,41 +1,50 @@
 class MergeSort {
 
-    static void merge(int[] A, int p, int q, int r) {
+    public void merge(int[] vector, int p, int q, int r) {
         int[] aux = new int[r - p + 1];
         int a = p;
         int b = q + 1;
         int h = 0;
         while (a <= q && b <= r) {
-            if (A[a] < A[b]) {
-                aux[h++] = A[a++];
+            if (vector[a] < vector[b]) {
+                h = h+1;
+                a = a+1;
+                aux[h] = vector[a];
             } else {
-                aux[h++] = A[b++];
+                h = h+1;
+                b = b+1;
+                aux[h] = vector[b];
             }
         }
         while (a <= q) {
-            aux[h++] = A[a++];
+            h = h+1;
+            a = a+1;
+            aux[h] = vector[a];
         }
         while (b <= r) {
-            aux[h++] = A[b++];
+            h = h+1;
+            b = b+1;
+            aux[h] = vector[b];
         }
         h = 0;
-        while (h < aux.length) {
-            A[p++] = aux[h];
-            h++;
+        while (h < aux.length()) {
+            p = p+1;
+            vector[p] = aux[h];
+            h = h+1;
         }
     }
 
-    static void mergeSort(int[] A, int p, int r) {
+    public void mergeSort(int[] vector, int p, int r) {
         int q = (p + r) / 2;
         if (p < r) {
-            mergeSort(A, p, q);
-            mergeSort(A, q + 1, r);
-            merge(A, p, q, r);
+            mergeSort(vector, p, q);
+            mergeSort(vector, q + 1, r);
+            merge(vector, p, q, r);
         }
     }
     
-    public static void main (String args[]){
-        int [] A = [1,6,9,3,6,7,2];
+    public static void main (String[] args) {
+        int[] vector = 5;
         int p = 4;
         int r = 1;
         mergeSort (a, p, r);
