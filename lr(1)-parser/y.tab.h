@@ -3,7 +3,7 @@
 #define PUBLIC 260
 #define STATIC 261
 #define SYSOUT 262
-#define BOOL 263
+#define BOOLEAN 263
 #define INT 264
 #define DOUBLE 265
 #define LENGTH 266
@@ -11,7 +11,7 @@
 #define RETURN 268
 #define STRING 269
 #define THIS 270
-#define EXT 271
+#define EXTENDS 271
 #define IF 272
 #define ELSE 273
 #define TRUE 274

@@ -20,7 +20,7 @@ letter        [a-zA-Z]
 "public"                            { printf("Line %d\tColumn %d\tSize %lu\tRecognized symbol as PUBLIC\tLexem %s\n", lines, cols, yyleng, yytext); cols += yyleng;  return PUBLIC;   }
 "static"                            { printf("Line %d\tColumn %d\tSize %lu\tRecognized symbol as STATIC\tLexem %s\n", lines, cols, yyleng, yytext); cols += yyleng;  return STATIC;   }
 "System.out.println"                { printf("Line %d\tColumn %d\tSize %lu\tRecognized symbol as SYSOUT\tLexem %s\n", lines, cols, yyleng, yytext); cols += yyleng;  return SYSOUT;   }
-"boolean"                           { printf("Line %d\tColumn %d\tSize %lu\tRecognized symbol as BOOL\tLexem %s\n", lines, cols, yyleng, yytext); cols += yyleng;  return BOOL; } 
+"boolean"                           { printf("Line %d\tColumn %d\tSize %lu\tRecognized symbol as BOOLEAN\tLexem %s\n", lines, cols, yyleng, yytext); cols += yyleng;  return BOOLEAN; } 
 "int"                               { printf("Line %d\tColumn %d\tSize %lu\tRecognized symbol as INT\tLexem %s\n", lines, cols, yyleng, yytext); cols += yyleng;  return INT;    }
 "double"                            { printf("Line %d\tColumn %d\tSize %lu\tRecognized symbol as DOUBLE\tLexem %s\n", lines, cols, yyleng, yytext); cols += yyleng;  return DOUBLE;   }
 ".length()"                         { printf("Line %d\tColumn %d\tSize %lu\tRecognized symbol as LENGTH\tLexem %s\n", lines, cols, yyleng, yytext); cols += yyleng;  return LENGTH;   }
@@ -28,7 +28,7 @@ letter        [a-zA-Z]
 "return"                            { printf("Line %d\tColumn %d\tSize %lu\tRecognized symbol as RETURN\tLexem %s\n", lines, cols, yyleng, yytext); cols += yyleng;  return RETURN;   }
 "String"                            { printf("Line %d\tColumn %d\tSize %lu\tRecognized symbol as STRING\tLexem %s\n", lines, cols, yyleng, yytext); cols += yyleng;  return STRING;   }
 "this"                              { printf("Line %d\tColumn %d\tSize %lu\tRecognized symbol as THIS\tLexem %s\n", lines, cols, yyleng, yytext); cols += yyleng;  return THIS; }
-"extends"                           { printf("Line %d\tColumn %d\tSize %lu\tRecognized symbol as EXT\tLexem %s\n", lines, cols, yyleng, yytext); cols += yyleng;  return EXT;    }
+"extends"                           { printf("Line %d\tColumn %d\tSize %lu\tRecognized symbol as EXTENDS\tLexem %s\n", lines, cols, yyleng, yytext); cols += yyleng;  return EXTENDS;    }
 "if"                                { printf("Line %d\tColumn %d\tSize %lu\tRecognized symbol as IF\tLexem %s\n", lines, cols, yyleng, yytext); cols += yyleng;  return IF;       }
 "else"                              { printf("Line %d\tColumn %d\tSize %lu\tRecognized symbol as ELSE\tLexem %s\n", lines, cols, yyleng, yytext); cols += yyleng;  return ELSE; }
 "true"                              { printf("Line %d\tColumn %d\tSize %lu\tRecognized symbol as TRUE\tLexem %s\n", lines, cols, yyleng, yytext); cols += yyleng;  return TRUE; }
